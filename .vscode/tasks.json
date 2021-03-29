@@ -28,6 +28,7 @@
             "command": "clang++",
             "args": [
                 "-g",
+                "-std=c++17",
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.out"
