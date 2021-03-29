@@ -1,9 +1,9 @@
 {
     "tasks": [
         {
-            "type": "cppbuild",
+            "type": "shell",
             "label": "C: build active file",
-            "command": "gcc",
+            "command": "clang",
             "args": [
                 "-g",
                 "${file}",
@@ -25,7 +25,7 @@
         {
             "type": "cppbuild",
             "label": "C++: build active file",
-            "command": "g++",
+            "command": "clang++",
             "args": [
                 "-g",
                 "${file}",
