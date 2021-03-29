@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 
-size_t CountWords(std::string string) {
+size_t CountWords(const std::string& string) {
   size_t count = 0;
 
   for (size_t i = 0; i < string.length(); i++)

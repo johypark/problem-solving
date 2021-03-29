@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 
-char GetMostCommonAlphabet(std::string string) {
+char GetMostCommonAlphabet(const std::string& string) {
   size_t count_array[26] = {0};
   size_t count = 0;
   char result = '?';
