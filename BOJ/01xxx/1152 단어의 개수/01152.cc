@@ -7,10 +7,12 @@
 
 size_t CountWords(const std::string& string) {
   size_t count = 0;
+  bool is_space = true;
 
-  for (size_t i = 0; i < string.length(); i++)
-    // If string[i] is the end of a word
-    if (isgraph(string[i]) && !isgraph(string[i + 1])) count++;
+  for (const char& alphabet : string) {
+    if (is_space && !isspace(alphabet)) count++;
+    is_space = isspace(alphabet);
+  }
 
   return count;
 }
