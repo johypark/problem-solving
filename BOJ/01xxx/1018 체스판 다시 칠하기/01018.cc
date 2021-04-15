@@ -9,8 +9,8 @@
 enum { BLACK = 'B', WHITE = 'W' };
 
 // Get minimum repaint count on 8x8 board starting at (x, y)
-size_t GetRepaintCount(size_t x, size_t y,
-                       const std::vector<std::vector<bool> >& board) {
+size_t GetRepaintCount(const std::vector<std::vector<bool>>& board, size_t x,
+                       size_t y) {
   size_t count = 0;
   bool color = true;
 
@@ -29,14 +29,15 @@ size_t GetRepaintCount(size_t x, size_t y,
 }
 
 // Get minimum repaint count on board
-size_t GetMinRepaintCount(size_t row, size_t column,
-                          const std::vector<std::vector<bool> >& board) {
+size_t GetMinRepaintCount(const std::vector<std::vector<bool>>& board) {
+  size_t row = board.size();
+  size_t column = board[0].size();
   size_t count = 64;
   size_t repaint_count;
 
   for (size_t i = 0; i <= row - 8; i++)
     for (size_t j = 0; j <= column - 8; j++) {
-      repaint_count = GetRepaintCount(i, j, board);
+      repaint_count = GetRepaintCount(board, i, j);
       if (count > repaint_count) count = repaint_count;
     }
 
@@ -45,16 +46,16 @@ size_t GetMinRepaintCount(size_t row, size_t column,
 
 int main(int argc, char* argv[]) {
   size_t n, m;
+  std::string colors;
 
   std::cin >> n >> m;
 
-  std::vector<std::vector<bool> > board(n, std::vector<bool>(m));
-  std::string color;
+  std::vector<std::vector<bool>> board(n, std::vector<bool>(m));
 
   for (size_t i = 0; i < n; i++) {
-    std::cin >> color;
-    for (size_t j = 0; j < m; j++) board[i][j] = color[j] == BLACK;
+    std::cin >> colors;
+    for (size_t j = 0; j < m; j++) board[i][j] = colors[j] == BLACK;
   }
 
-  std::cout << GetMinRepaintCount(n, m, board) << std::endl;
+  std::cout << GetMinRepaintCount(board) << std::endl;
 }
