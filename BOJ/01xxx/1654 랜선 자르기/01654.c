@@ -36,11 +36,11 @@ int main(int argc, char* argv[]) {
   size_t k, n;
   size_t* cables;
 
-  scanf("%zu %zu", &k, &n);
+  scanf(" %zu %zu", &k, &n);
 
   cables = malloc(sizeof(size_t) * k);
 
-  for (size_t i = 0; i < k; i++) scanf("%zu", &cables[i]);
+  for (size_t i = 0; i < k; i++) scanf(" %zu", &cables[i]);
 
   printf("%zu\n", get_max_cable_length(cables, k, n));
 

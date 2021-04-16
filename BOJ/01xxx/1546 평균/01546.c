@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
   size_t n;
   size_t* scores;
 
-  scanf("%zu", &n);
+  scanf(" %zu", &n);
 
   scores = malloc(sizeof(size_t) * n);
   for (size_t i = 0; i < n; i++) scanf("%zu", &scores[i]);

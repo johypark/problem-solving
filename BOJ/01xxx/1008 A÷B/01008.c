@@ -8,7 +8,7 @@ int main(int argc, char* argv[]) {
   int a, b;
   double quotient;
 
-  scanf("%d %d", &a, &b);
+  scanf(" %d %d", &a, &b);
 
   quotient = a;
   quotient /= b;

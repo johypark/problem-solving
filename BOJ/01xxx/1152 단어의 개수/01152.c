@@ -24,7 +24,7 @@ size_t count_words(const char* string) {
 int main(int argc, char* argv[]) {
   char string[MAX_LENGTH + 1];
 
-  fgets(string, sizeof(string), stdin);
+  scanf(" %[^\n]", string);
 
   printf("%zu\n", count_words(string));
 }

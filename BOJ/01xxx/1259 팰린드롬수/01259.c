@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
   char number[MAX_LENGTH + 1];
 
   while (true) {
-    scanf("%s", number);
+    scanf(" %s", number);
 
     if (!strcmp(number, "0")) return 0;
 

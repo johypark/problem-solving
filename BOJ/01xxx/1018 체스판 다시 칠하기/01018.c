@@ -46,18 +46,15 @@ int main(int argc, char* argv[]) {
   bool** board;
   char color;
 
-  scanf("%zu %zu", &n, &m);
-  getchar();
+  scanf(" %zu %zu", &n, &m);
 
   board = malloc(sizeof(bool*) * n);
   for (size_t i = 0; i < n; i++) {
     board[i] = malloc(sizeof(bool) * m);
     for (size_t j = 0; j < m; j++) {
-      scanf("%c", &color);
+      scanf(" %c", &color);
       board[i][j] = color == BLACK;
     }
-
-    getchar();
   }
 
   printf("%zu\n", get_min_repaint_count(board, n, m));

@@ -35,7 +35,7 @@ char get_most_common_alphabet(const char* string) {
 int main(int argc, char* argv[]) {
   char string[MAX_LENGTH + 1];
 
-  scanf("%s", string);
+  scanf(" %s", string);
 
   printf("%c\n", get_most_common_alphabet(string));
 }

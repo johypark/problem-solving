@@ -14,7 +14,7 @@ size_t get_min_distance(size_t x, size_t y, size_t width, size_t height) {
 int main(int argc, char* argv[]) {
   int x, y, w, h;
 
-  scanf("%d %d %d %d", &x, &y, &w, &h);
+  scanf(" %d %d %d %d", &x, &y, &w, &h);
 
   printf("%zu\n", get_min_distance(x, y, w, h));
 }

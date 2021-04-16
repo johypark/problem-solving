@@ -33,7 +33,7 @@ size_t get_apocalypse_number(size_t n) {
 int main(int argc, char* argv[]) {
   size_t n;
 
-  scanf("%zu", &n);
+  scanf(" %zu", &n);
 
   printf("%zu\n", get_apocalypse_number(n));
 }
