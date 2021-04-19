@@ -9,9 +9,9 @@ size_t CountWords(const std::string& string) {
   size_t count = 0;
   bool is_space = true;
 
-  for (const char& alphabet : string) {
-    if (is_space && !isspace(alphabet)) count++;
-    is_space = isspace(alphabet);
+  for (const char& ch : string) {
+    if (is_space && !isspace(ch)) count++;
+    is_space = isspace(ch);
   }
 
   return count;

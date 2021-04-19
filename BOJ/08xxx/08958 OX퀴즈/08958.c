@@ -8,10 +8,11 @@
 enum { MAX_LENGTH = 80 };
 
 size_t get_score(const char* string) {
+  size_t length = strlen(string);
   size_t count = 0;
   size_t score = 0;
 
-  for (size_t i = 0; i < strlen(string); i++) {
+  for (size_t i = 0; i < length; i++) {
     if (string[i] == 'O')
       score += ++count;
     else

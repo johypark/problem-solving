@@ -10,10 +10,11 @@
 enum { MAX_LENGTH = 1000000 };
 
 size_t count_words(const char* string) {
+  size_t length = strlen(string);
   size_t count = 0;
   bool is_space = true;
 
-  for (size_t i = 0; i < strlen(string); i++) {
+  for (size_t i = 0; i < length; i++) {
     if (is_space && !isspace(string[i])) count++;
     is_space = isspace(string[i]);
   }

@@ -9,12 +9,13 @@
 enum { MAX_LENGTH = 1000000 };
 
 char get_most_common_alphabet(const char* string) {
+  size_t length = strlen(string);
   size_t count_array[26] = {0};
   size_t count = 0;
   char result = '?';
 
   // Count the alphabets are used
-  for (size_t i = 0; i < strlen(string); i++) {
+  for (size_t i = 0; i < length; i++) {
     count_array[toupper(string[i]) - 'A']++;
   }
 
