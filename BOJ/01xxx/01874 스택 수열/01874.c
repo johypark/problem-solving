@@ -51,10 +51,10 @@ void push_stack(Stack* stack, Element element) {
   stack->data[stack->size++] = element;
 }
 
-void pop_stack(Stack* stack) {
+Element pop_stack(Stack* stack) {
   check_stack_empty(stack);
 
-  stack->size--;
+  return stack->data[--stack->size];
 }
 
 Element peek_stack(Stack* stack) {
@@ -77,14 +77,13 @@ void print_stack_log(const size_t* numbers, size_t length) {
     }
 
     // Pop
-    if (peek_stack(stack) != numbers[i]) {
+    if (pop_stack(stack) != numbers[i]) {
       printf("NO\n");
       free_stack(stack);
       free(log);
       return;
     }
 
-    pop_stack(stack);
     log[log_index++] = '-';
   }
 
