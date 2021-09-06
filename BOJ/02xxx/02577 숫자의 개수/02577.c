@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
   scanf(" %zu %zu %zu", &a, &b, &c);
 
   numbers_used = get_numbers_used(a * b * c);
-  for (size_t i = 0; i < 10; i++) printf("%d\n", numbers_used[i]);
+  for (size_t i = 0; i < 10; i++) printf("%zu\n", numbers_used[i]);
 
   free(numbers_used);
 }

@@ -26,5 +26,5 @@ int main(int argc, char* argv[]) {
     words.insert(word);
   }
 
-  for (const auto& word : words) std::cout << word << "\n";
+  for (const auto& word : words) std::cout << word << '\n';
 }
