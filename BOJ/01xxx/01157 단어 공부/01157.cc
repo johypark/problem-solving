@@ -1,37 +1,37 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <array>
 #include <iostream>
 #include <string>
 
-char GetMostCommonAlphabet(const std::string& string) {
-  std::array<size_t, 26> count_array = {0};
-  size_t count = 0;
-  char result = '?';
+using namespace std;
+
+char getMostCommonAlphabet(const string &str) {
+  const int ALPHABET_NUM = 26;
+  const char UNKNOWN = '?';
+  array<int, ALPHABET_NUM> alphabetCounts = {0};
+  int count = 0;
+  char result = UNKNOWN;
 
   // Count the alphabets are used
-  for (const char& alphabet : string) count_array[toupper(alphabet) - 'A']++;
+  for (const char &alphabet : str)
+    alphabetCounts[toupper(alphabet) - 'A']++;
 
-  for (size_t i = 0; i < count_array.size(); i++) {
-    if (count_array[i] > count) {
+  for (size_t i = 0; i < alphabetCounts.size(); i++) {
+    if (alphabetCounts[i] > count) {
       // If the current alphabet is used more often
-      count = count_array[i];
+      count = alphabetCounts[i];
       result = 'A' + i;
-    } else if (count_array[i] == count) {
+    } else if (alphabetCounts[i] == count) {
       // If the most used alphabet is duplicated
-      result = '?';
+      result = UNKNOWN;
     }
   }
 
   return result;
 }
 
-int main(int argc, char* argv[]) {
-  std::string string;
+int main() {
+  string str;
+  cin >> str;
 
-  std::cin >> string;
-
-  std::cout << GetMostCommonAlphabet(string) << std::endl;
+  cout << getMostCommonAlphabet(str) << endl;
 }

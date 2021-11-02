@@ -1,64 +1,69 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 enum { BLACK = 'B', WHITE = 'W' };
 
-// Get minimum repaint count on 8x8 board starting at (x, y)
-size_t get_repaint_count(bool** board, size_t x, size_t y) {
-  size_t count = 0;
-  bool color = true;
+// Get minimum repaint count on 8x8 chessboard starting at board(x, y)
+int get_min_chessboard_repaint_count(bool **board, int x, int y) {
+  const int CHESSBOARD_SIZE = 8;
+  int count = 0;
+  bool color = false;
 
-  for (size_t i = 0; i < 8; i++) {
-    for (size_t j = 0; j < 8; j++) {
-      if (board[i + x][j + y] != color) count++;
+  for (int i = 0; i < CHESSBOARD_SIZE; i++) {
+    for (int j = 0; j < CHESSBOARD_SIZE; j++) {
+      if (board[i + y][j + x] != color)
+        count++;
       color = !color;
     }
-    color = !color;
+
+    if (CHESSBOARD_SIZE % 2 == 0)
+      color = !color;
   }
 
-  // Check if the count is minimum
-  if (count > 32) count = 64 - count;
+  // Check if count is minimum
+  if (count > 32)
+    count = 64 - count;
 
   return count;
 }
 
-// Get minimum repaint count on board
-size_t get_min_repaint_count(bool** board, size_t row, size_t column) {
-  size_t count = 64;
-  size_t repaint_count;
+// Get minimum repaint count on board to make chessboard
+int get_min_repaint_count(bool **board, int width, int height) {
+  const int CHESSBOARD_SIZE = 8;
+  int count = CHESSBOARD_SIZE * CHESSBOARD_SIZE;
+  int chessboard_repaint_count;
 
-  for (size_t i = 0; i <= row - 8; i++)
-    for (size_t j = 0; j <= column - 8; j++) {
-      repaint_count = get_repaint_count(board, i, j);
-      if (count > repaint_count) count = repaint_count;
+  for (int y = 0; y <= height - CHESSBOARD_SIZE; y++) {
+    for (int x = 0; x <= width - CHESSBOARD_SIZE; x++) {
+      chessboard_repaint_count = get_min_chessboard_repaint_count(board, x, y);
+      if (count > chessboard_repaint_count)
+        count = chessboard_repaint_count;
     }
+  }
 
   return count;
 }
 
-int main(int argc, char* argv[]) {
-  size_t n, m;
-  bool** board;
+int main(void) {
+  int n, m;
+  scanf("%d%d", &n, &m);
+
+  // Initialize board
+  bool **board = malloc(sizeof(bool *) * n);
   char color;
-
-  scanf(" %zu %zu", &n, &m);
-
-  board = malloc(sizeof(bool*) * n);
-  for (size_t i = 0; i < n; i++) {
+  for (int i = 0; i < n; i++) {
     board[i] = malloc(sizeof(bool) * m);
-    for (size_t j = 0; j < m; j++) {
+    for (int j = 0; j < m; j++) {
       scanf(" %c", &color);
-      board[i][j] = color == BLACK;
+      board[i][j] = color == WHITE;
     }
   }
 
-  printf("%zu\n", get_min_repaint_count(board, n, m));
+  printf("%d\n", get_min_repaint_count(board, m, n));
 
-  for (size_t i = 0; i < n; i++) free(board[i]);
+  // Free
+  for (int i = 0; i < n; i++)
+    free(board[i]);
   free(board);
 }

@@ -1,35 +1,35 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <iostream>
 #include <vector>
 
 enum { LENGTH = 8 };
 
-void PrintScaleOrder(const std::vector<size_t>& numbers) {
-  bool is_ascending = true;
-  bool is_descending = true;
+using namespace std;
 
-  for (size_t i = 0; i < numbers.size(); i++) {
-    if (numbers[i] != i + 1) is_ascending = false;
-    if (numbers[i] != numbers.size() - i) is_descending = false;
+void printScaleOrder(const vector<int> &numbers) {
+  bool isAscending = true;
+  bool isDescending = true;
+
+  for (int i = 0; i < numbers.size(); i++) {
+    if (numbers[i] != i + 1)
+      isAscending = false;
+    if (numbers[i] != numbers.size() - i)
+      isDescending = false;
   }
 
-  if (is_ascending)
-    std::cout << "ascending";
-  else if (is_descending)
-    std::cout << "descending";
+  if (isAscending)
+    cout << "ascending";
+  else if (isDescending)
+    cout << "descending";
   else
-    std::cout << "mixed";
+    cout << "mixed";
 
-  std::cout << std::endl;
+  cout << endl;
 }
 
-int main(int argc, char* argv[]) {
-  std::vector<size_t> numbers(LENGTH);
+int main() {
+  vector<int> numbers(LENGTH);
+  for (int &number : numbers)
+    cin >> number;
 
-  for (size_t& number : numbers) std::cin >> number;
-
-  PrintScaleOrder(numbers);
+  printScaleOrder(numbers);
 }

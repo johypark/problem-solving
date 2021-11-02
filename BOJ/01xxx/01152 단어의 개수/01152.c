@@ -1,7 +1,3 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -9,23 +5,22 @@
 
 enum { MAX_LENGTH = 1000000 };
 
-size_t count_words(const char* string) {
-  size_t length = strlen(string);
-  size_t count = 0;
+int count_words(const char *str) {
+  int length = strlen(str);
+  int count = 0;
   bool is_space = true;
-
-  for (size_t i = 0; i < length; i++) {
-    if (is_space && !isspace(string[i])) count++;
-    is_space = isspace(string[i]);
+  for (int i = 0; i < length; i++) {
+    if (is_space && !isspace(str[i]))
+      count++;
+    is_space = isspace(str[i]);
   }
 
   return count;
 }
 
-int main(int argc, char* argv[]) {
-  char string[MAX_LENGTH + 1];
+int main(void) {
+  char str[MAX_LENGTH + 1];
+  scanf("%[^\n]", str);
 
-  scanf(" %[^\n]", string);
-
-  printf("%zu\n", count_words(string));
+  printf("%d\n", count_words(str));
 }

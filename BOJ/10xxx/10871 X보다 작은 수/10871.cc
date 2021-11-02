@@ -1,21 +1,19 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <iostream>
 #include <vector>
 
-int main(int argc, char* argv[]) {
-  size_t n, x;
+using namespace std;
 
-  std::cin >> n >> x;
+int main() {
+  int n, x;
+  cin >> n >> x;
 
-  std::vector<size_t> a(n);
-  for (size_t& number : a) {
-    std::cin >> number;
+  vector<int> a(n);
+  for (int &number : a) {
+    cin >> number;
 
-    if (number < x) std::cout << number << ' ';
+    if (number < x)
+      cout << number << ' ';
   }
 
-  std::cout << std::endl;
+  cout << endl;
 }

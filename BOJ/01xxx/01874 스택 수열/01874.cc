@@ -1,19 +1,18 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <iostream>
 #include <stack>
 #include <vector>
 
-void PrintStackLog(const std::vector<size_t>& numbers) {
-  size_t count = 1;
-  std::stack<size_t> stack;
-  std::vector<char> log;
+using namespace std;
 
+void printStackLog(const vector<int> &numbers) {
+  int count = 1;
+  stack<int> stack;
+  vector<char> log;
+
+  // Set log size
   log.reserve(numbers.size() * 2);
 
-  for (const size_t& number : numbers) {
+  for (const int &number : numbers) {
     // Push
     while (number >= count) {
       stack.push(count++);
@@ -22,7 +21,7 @@ void PrintStackLog(const std::vector<size_t>& numbers) {
 
     // Pop
     if (stack.top() != number) {
-      std::cout << "NO" << std::endl;
+      cout << "NO" << endl;
       return;
     }
 
@@ -30,16 +29,17 @@ void PrintStackLog(const std::vector<size_t>& numbers) {
     log.push_back('-');
   }
 
-  for (const char& sign : log) std::cout << sign << '\n';
+  for (const char &sign : log)
+    cout << sign << '\n';
 }
 
-int main(int argc, char* argv[]) {
-  size_t n;
+int main() {
+  int n;
+  cin >> n;
 
-  std::cin >> n;
+  vector<int> numbers(n);
+  for (int &number : numbers)
+    cin >> number;
 
-  std::vector<size_t> numbers(n);
-  for (size_t& number : numbers) std::cin >> number;
-
-  PrintStackLog(numbers);
+  printStackLog(numbers);
 }

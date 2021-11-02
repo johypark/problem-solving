@@ -1,14 +1,11 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <iostream>
 
-size_t GetApocalypseNumber(size_t n) {
-  size_t count = 0;
-  size_t number = 0;
-  size_t times, dividend;
+using namespace std;
 
+int getApocalypseNumber(int n) {
+  int count = 0;
+  int number = 0;
+  int times, dividend;
   while (count < n) {
     times = 0;
     dividend = ++number;
@@ -30,10 +27,9 @@ size_t GetApocalypseNumber(size_t n) {
   return number;
 }
 
-int main(int argc, char* argv[]) {
-  size_t n;
+int main() {
+  int n;
+  cin >> n;
 
-  std::cin >> n;
-
-  std::cout << GetApocalypseNumber(n) << std::endl;
+  cout << getApocalypseNumber(n) << endl;
 }

@@ -1,26 +1,26 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <iostream>
 #include <vector>
 
-std::vector<size_t> GetNumbersUsed(size_t number) {
-  std::vector<size_t> numbers_used(10);
+enum { BASE = 10 };
+
+using namespace std;
+
+vector<int> getNumbersUsed(int number) {
+  vector<int> numbersUsed(BASE);
 
   while (number > 0) {
-    numbers_used[number % 10]++;
-    number /= 10;
+    numbersUsed[number % BASE]++;
+    number /= BASE;
   }
 
-  return numbers_used;
+  return numbersUsed;
 }
 
-int main(int argc, char* argv[]) {
-  size_t a, b, c;
+int main() {
+  int a, b, c;
+  cin >> a >> b >> c;
 
-  std::cin >> a >> b >> c;
-
-  std::vector<size_t> numbers_used = GetNumbersUsed(a * b * c);
-  for (const size_t& number : numbers_used) std::cout << number << '\n';
+  vector<int> numbersUsed = getNumbersUsed(a * b * c);
+  for (const int &number : numbersUsed)
+    cout << number << '\n';
 }

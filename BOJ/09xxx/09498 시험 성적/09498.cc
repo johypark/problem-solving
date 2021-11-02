@@ -1,22 +1,24 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <iostream>
 
-char GetGrade(size_t score) {
-  if (score >= 90) return 'A';
-  if (score >= 80) return 'B';
-  if (score >= 70) return 'C';
-  if (score >= 60) return 'D';
+using namespace std;
+
+char getGrade(int score) {
+  if (score >= 90)
+    return 'A';
+  if (score >= 80)
+    return 'B';
+  if (score >= 70)
+    return 'C';
+  if (score >= 60)
+    return 'D';
 
   return 'F';
 }
 
-int main(int argc, char* argv[]) {
-  size_t score;
+int main(int argc, char *argv[]) {
+  int score;
 
-  std::cin >> score;
+  cin >> score;
 
-  std::cout << GetGrade(score);
+  cout << getGrade(score);
 }

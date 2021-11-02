@@ -1,39 +1,41 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <cmath>
 #include <iostream>
 #include <vector>
 
 enum { MAX_NUMBER = 1000 };
 
-std::vector<bool> Eratos(size_t n) {
-  size_t sqrt_n = sqrt(n);
+using namespace std;
 
-  std::vector<bool> eratos(n + 1);
-  for (size_t i = 2; i <= n; i++) eratos[i] = true;
+vector<bool> eratos(int n) {
+  int sqrtN = sqrt(n);
 
-  for (size_t i = 2; i <= sqrt_n; i++)
-    if (eratos[i]) {
-      for (size_t j = i * i; j <= n; j += i) eratos[j] = false;
+  // Initialize
+  vector<bool> isPrime(n + 1);
+  for (int i = 2; i <= n; i++)
+    isPrime[i] = true;
+
+  // Eratos
+  for (int i = 2; i <= sqrtN; i++)
+    if (isPrime[i]) {
+      for (int j = i * i; j <= n; j += i)
+        isPrime[j] = false;
     }
 
-  return eratos;
+  return isPrime;
 }
 
-int main(int argc, char* argv[]) {
-  size_t n, number;
-  size_t count = 0;
+int main() {
+  int n;
+  cin >> n;
 
-  std::cin >> n;
-
-  std::vector<bool> is_prime = Eratos(MAX_NUMBER);
-
-  for (size_t i = 0; i < n; i++) {
-    std::cin >> number;
-    if (is_prime[number]) count++;
+  vector<bool> isPrime = eratos(MAX_NUMBER);
+  int number;
+  int count = 0;
+  for (int i = 0; i < n; i++) {
+    cin >> number;
+    if (isPrime[number])
+      count++;
   }
 
-  std::cout << count << std::endl;
+  cout << count << endl;
 }

@@ -1,14 +1,9 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <stdio.h>
 
-size_t get_apocalypse_number(size_t n) {
-  size_t count = 0;
-  size_t number = 0;
-  size_t times, dividend;
-
+int get_apocalypse_number(int n) {
+  int count = 0;
+  int number = 0;
+  int times, dividend;
   while (count < n) {
     times = 0;
     dividend = ++number;
@@ -30,10 +25,9 @@ size_t get_apocalypse_number(size_t n) {
   return number;
 }
 
-int main(int argc, char* argv[]) {
-  size_t n;
+int main(void) {
+  int n;
+  scanf("%d", &n);
 
-  scanf(" %zu", &n);
-
-  printf("%zu\n", get_apocalypse_number(n));
+  printf("%d\n", get_apocalypse_number(n));
 }

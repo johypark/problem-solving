@@ -1,61 +1,66 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <iostream>
 #include <string>
 #include <vector>
 
 enum { BLACK = 'B', WHITE = 'W' };
 
-// Get minimum repaint count on 8x8 board starting at (x, y)
-size_t GetRepaintCount(const std::vector<std::vector<bool>>& board, size_t x,
-                       size_t y) {
-  size_t count = 0;
-  bool color = true;
+using namespace std;
 
-  for (size_t i = 0; i < 8; i++) {
-    for (size_t j = 0; j < 8; j++) {
-      if (board[i + x][j + y] != color) count++;
+// Get minimum repaint count on 8x8 chessboard starting at board(x, y)
+int getMinChessboardRepaintCount(const vector<vector<bool>> &board, int x,
+                                 int y) {
+  const int CHESSBOARD_SIZE = 8;
+  int count = 0;
+  bool color = false;
+
+  for (int i = 0; i < CHESSBOARD_SIZE; i++) {
+    for (int j = 0; j < CHESSBOARD_SIZE; j++) {
+      if (board[i + y][j + x] != color)
+        count++;
       color = !color;
     }
-    color = !color;
+
+    if (CHESSBOARD_SIZE % 2 == 0)
+      color = !color;
   }
 
   // Check if the count is minimum
-  if (count > 32) count = 64 - count;
+  if (count > 32)
+    count = 64 - count;
 
   return count;
 }
 
-// Get minimum repaint count on board
-size_t GetMinRepaintCount(const std::vector<std::vector<bool>>& board) {
-  size_t row = board.size();
-  size_t column = board[0].size();
-  size_t count = 64;
-  size_t repaint_count;
+// Get minimum repaint count on board to make chessboard
+int getMinRepaintCount(const vector<vector<bool>> &board) {
+  const int CHESSBOARD_SIZE = 8;
+  int width = board[0].size();
+  int height = board.size();
+  int count = CHESSBOARD_SIZE * CHESSBOARD_SIZE;
+  int chessboard_repaint_count;
 
-  for (size_t i = 0; i <= row - 8; i++)
-    for (size_t j = 0; j <= column - 8; j++) {
-      repaint_count = GetRepaintCount(board, i, j);
-      if (count > repaint_count) count = repaint_count;
+  for (int y = 0; y <= height - 8; y++)
+    for (int x = 0; x <= width - 8; x++) {
+      chessboard_repaint_count = getMinChessboardRepaintCount(board, x, y);
+      if (count > chessboard_repaint_count)
+        count = chessboard_repaint_count;
     }
 
   return count;
 }
 
-int main(int argc, char* argv[]) {
-  size_t n, m;
-  std::string colors;
+int main() {
+  int n, m;
+  cin >> n >> m;
 
-  std::cin >> n >> m;
-
-  std::vector<std::vector<bool>> board(n, std::vector<bool>(m));
-
-  for (size_t i = 0; i < n; i++) {
-    std::cin >> colors;
-    for (size_t j = 0; j < m; j++) board[i][j] = colors[j] == BLACK;
+  // Initialize board
+  vector<vector<bool>> board(n, vector<bool>(m));
+  string colors;
+  for (int i = 0; i < n; i++) {
+    cin >> colors;
+    for (int j = 0; j < m; j++)
+      board[i][j] = colors[j] == WHITE;
   }
 
-  std::cout << GetMinRepaintCount(board) << std::endl;
+  cout << getMinRepaintCount(board) << endl;
 }

@@ -1,42 +1,38 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 
 enum { MAX_LENGTH = 1000000 };
 
-char get_most_common_alphabet(const char* string) {
-  size_t length = strlen(string);
-  size_t count_array[26] = {0};
-  size_t count = 0;
-  char result = '?';
+char get_most_common_alphabet(const char *str) {
+  const int ALPHABET_NUM = 26;
+  const char UNKNOWN = '?';
+  int length = strlen(str);
+  int alphabet_counts[ALPHABET_NUM] = {0};
+  int count = 0;
+  char result = UNKNOWN;
 
   // Count the alphabets are used
-  for (size_t i = 0; i < length; i++) {
-    count_array[toupper(string[i]) - 'A']++;
-  }
+  for (int i = 0; i < length; i++)
+    alphabet_counts[toupper(str[i]) - 'A']++;
 
-  for (size_t i = 0; i < 26; i++) {
-    if (count_array[i] > count) {
+  for (int i = 0; i < ALPHABET_NUM; i++) {
+    if (alphabet_counts[i] > count) {
       // If the current alphabet is used more often
-      count = count_array[i];
+      count = alphabet_counts[i];
       result = 'A' + i;
-    } else if (count_array[i] == count) {
+    } else if (alphabet_counts[i] == count) {
       // If the most used alphabet is duplicated
-      result = '?';
+      result = UNKNOWN;
     }
   }
 
   return result;
 }
 
-int main(int argc, char* argv[]) {
-  char string[MAX_LENGTH + 1];
+int main(void) {
+  char str[MAX_LENGTH + 1];
+  scanf("%s", str);
 
-  scanf(" %s", string);
-
-  printf("%c\n", get_most_common_alphabet(string));
+  printf("%c\n", get_most_common_alphabet(str));
 }

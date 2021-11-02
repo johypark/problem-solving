@@ -1,30 +1,27 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <iostream>
 #include <vector>
 
-double GetAverageSejun(const std::vector<size_t>& scores) {
-  size_t sum = 0, max = 0;
-  double average;
+using namespace std;
 
-  for (const size_t& score : scores) {
-    if (max < score) max = score;
+double getAverageSejun(const vector<int> &scores) {
+  int sum = 0, max = 0;
+  for (const int &score : scores) {
+    if (max < score)
+      max = score;
     sum += score;
   }
 
-  average = 1.0 * sum / scores.size();
+  double average = static_cast<double>(sum) / scores.size();
   return average / max * 100;
 }
 
-int main(int argc, char* argv[]) {
-  size_t n;
+int main() {
+  int n;
+  cin >> n;
 
-  std::cin >> n;
+  vector<int> scores(n);
+  for (int &score : scores)
+    cin >> score;
 
-  std::vector<size_t> scores(n);
-  for (size_t& score : scores) std::cin >> score;
-
-  std::cout << GetAverageSejun(scores) << std::endl;
+  cout << getAverageSejun(scores) << endl;
 }

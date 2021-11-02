@@ -1,13 +1,11 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <iostream>
 
-int main(int argc, char* argv[]) {
-  size_t n;
+using namespace std;
 
-  std::cin >> n;
+int main() {
+  int n;
+  cin >> n;
 
-  for (size_t i = 1; i <= n; i++) std::cout << i << '\n';
+  for (int i = 1; i <= n; i++)
+    cout << i << '\n';
 }

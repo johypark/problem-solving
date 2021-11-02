@@ -1,7 +1,3 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <stdio.h>
 
 int get_number_sangsu(int n) {
@@ -15,10 +11,9 @@ int get_answer_sangsu(int a, int b) {
   return a_sangsu > b_sangsu ? a_sangsu : b_sangsu;
 }
 
-int main(int argc, char* argv[]) {
+int main(void) {
   int a, b;
-
-  scanf(" %d %d", &a, &b);
+  scanf("%d%d", &a, &b);
 
   printf("%d\n", get_answer_sangsu(a, b));
 }

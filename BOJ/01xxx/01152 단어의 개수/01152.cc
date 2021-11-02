@@ -1,26 +1,24 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <iostream>
 #include <string>
 
-size_t CountWords(const std::string& string) {
-  size_t count = 0;
-  bool is_space = true;
+using namespace std;
 
-  for (const char& ch : string) {
-    if (is_space && !isspace(ch)) count++;
-    is_space = isspace(ch);
+int countWords(const string &str) {
+  int count = 0;
+  bool isSpace = true;
+
+  for (const char &ch : str) {
+    if (isSpace && !isspace(ch))
+      count++;
+    isSpace = isspace(ch);
   }
 
   return count;
 }
 
-int main(int argc, char* argv[]) {
-  std::string string;
+int main() {
+  string str;
+  getline(cin, str);
 
-  getline(std::cin, string);
-
-  std::cout << CountWords(string) << std::endl;
+  cout << countWords(str) << endl;
 }

@@ -1,20 +1,17 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <iostream>
 
-size_t GetMinDistance(size_t x, size_t y, size_t width, size_t height) {
-  size_t distance_x = x < width - x ? x : width - x;
-  size_t distance_y = y < height - y ? y : height - y;
+using namespace std;
 
-  return distance_x < distance_y ? distance_x : distance_y;
+int getMinDistance(int x, int y, int width, int height) {
+  int distanceX = x < width - x ? x : width - x;
+  int distanceY = y < height - y ? y : height - y;
+
+  return distanceX < distanceY ? distanceX : distanceY;
 }
 
-int main(int argc, char* argv[]) {
+int main() {
   int x, y, w, h;
+  cin >> x >> y >> w >> h;
 
-  std::cin >> x >> y >> w >> h;
-
-  std::cout << GetMinDistance(x, y, w, h) << std::endl;
+  cout << getMinDistance(x, y, w, h) << endl;
 }

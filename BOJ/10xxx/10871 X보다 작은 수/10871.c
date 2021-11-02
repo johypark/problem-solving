@@ -1,21 +1,16 @@
-// Copyright 2021 Johy. All rights reserved.
-// Licensed under the MIT License.
-// See LICENSE file in the project root for license information.
-
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(int argc, char* argv[]) {
-  size_t n, x;
-  size_t* a;
+int main(void) {
+  int n, x;
+  scanf("%d%d", &n, &x);
 
-  scanf(" %zu %zu", &n, &x);
+  int *a = malloc(sizeof(int) * n);
+  for (int i = 0; i < n; i++) {
+    scanf("%d", &a[i]);
 
-  a = malloc(sizeof(size_t) * n);
-  for (size_t i = 0; i < n; i++) {
-    scanf(" %zu", &a[i]);
-
-    if (a[i] < x) printf("%zu ", a[i]);
+    if (a[i] < x)
+      printf("%d ", a[i]);
   }
 
   printf("\n");
