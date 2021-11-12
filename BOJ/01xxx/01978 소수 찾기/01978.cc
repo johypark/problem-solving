@@ -6,34 +6,34 @@ enum { MAX_NUMBER = 1000 };
 
 using namespace std;
 
-vector<bool> eratos(int n) {
-  int sqrtN = sqrt(n);
+vector<bool> getPrimeTable(int max) {
+  int sqrtN = sqrt(max);
 
   // Initialize
-  vector<bool> isPrime(n + 1);
-  for (int i = 2; i <= n; i++)
-    isPrime[i] = true;
+  vector<bool> primeTable(max + 1);
+  for (int i = 2; i <= max; i++)
+    primeTable[i] = true;
 
   // Eratos
   for (int i = 2; i <= sqrtN; i++)
-    if (isPrime[i]) {
-      for (int j = i * i; j <= n; j += i)
-        isPrime[j] = false;
+    if (primeTable[i]) {
+      for (int j = i * i; j <= max; j += i)
+        primeTable[j] = false;
     }
 
-  return isPrime;
+  return primeTable;
 }
 
 int main() {
   int n;
   cin >> n;
 
-  vector<bool> isPrime = eratos(MAX_NUMBER);
+  vector<bool> primeTable = getPrimeTable(MAX_NUMBER);
   int number;
   int count = 0;
   for (int i = 0; i < n; i++) {
     cin >> number;
-    if (isPrime[number])
+    if (primeTable[number])
       count++;
   }
 
