@@ -12,26 +12,26 @@ int main() {
     cin >> n >> m;
 
     priority_queue<int> priorityQueue;
-    queue<pair<int, int>> queue;
+    queue<pair<int, int>> printerQueue;
     for (int i = 0; i < n; i++) {
       cin >> priority;
       priorityQueue.push(priority);
-      queue.push({priority, i});
+      printerQueue.push({priority, i});
     }
 
     int count = 0;
     while (true) {
-      if (queue.front().first == priorityQueue.top()) {
+      if (printerQueue.front().first == priorityQueue.top()) {
         count++;
 
-        if (queue.front().second == m)
+        if (printerQueue.front().second == m)
           break;
 
         priorityQueue.pop();
-        queue.pop();
+        printerQueue.pop();
       } else {
-        queue.push(queue.front());
-        queue.pop();
+        printerQueue.push(printerQueue.front());
+        printerQueue.pop();
       }
     }
 
