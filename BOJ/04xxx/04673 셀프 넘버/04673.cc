@@ -17,9 +17,8 @@ int getDigitsum(int n) {
 
 vector<bool> getSelfNumberTable(int max) {
   // Initialize
-  vector<bool> selfNumberTable(max + 1);
-  for (int i = 1; i <= max; i++)
-    selfNumberTable[i] = true;
+  vector<bool> selfNumberTable(max + 1, true);
+  selfNumberTable[0] = false;
 
   int digitsum;
   for (int i = 1; i < max; i++) {
