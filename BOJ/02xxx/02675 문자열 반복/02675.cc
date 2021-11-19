@@ -15,11 +15,11 @@ string getRepeatingCharString(const string &str, int n) {
 }
 
 int main() {
-  int t, r;
-  string s, p;
-
+  int t;
   cin >> t;
 
+  int r;
+  string s, p;
   for (int i = 0; i < t; i++) {
     cin >> r >> s;
 
