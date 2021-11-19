@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 
 enum { MAX_LENGTH = 100 };
 

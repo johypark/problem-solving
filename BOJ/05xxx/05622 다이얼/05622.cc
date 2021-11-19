@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 
 enum { DIAL_DELAY = 1 };
 

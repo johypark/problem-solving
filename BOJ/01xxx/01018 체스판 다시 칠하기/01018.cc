@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <vector>
 
 enum { BLACK = 'B', WHITE = 'W' };
