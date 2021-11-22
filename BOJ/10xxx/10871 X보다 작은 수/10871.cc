@@ -8,11 +8,11 @@ int main() {
   cin >> n >> x;
 
   vector<int> a(n);
-  for (int &number : a) {
-    cin >> number;
+  for (int &num : a) {
+    cin >> num;
 
-    if (number < x)
-      cout << number << ' ';
+    if (num < x)
+      cout << num << ' ';
   }
 
   cout << endl;

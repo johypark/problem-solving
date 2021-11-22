@@ -7,13 +7,13 @@ using namespace std;
 
 int main() {
   int n;
-  array<int, DIVISOR> isNumbersExist = {false};
+  array<int, DIVISOR> isNumExist = {false};
   int count = 0;
   for (int i = 0; i < LENGTH; i++) {
     cin >> n;
 
-    if (!isNumbersExist[n % DIVISOR]) {
-      isNumbersExist[n % DIVISOR] = true;
+    if (!isNumExist[n % DIVISOR]) {
+      isNumExist[n % DIVISOR] = true;
       count++;
     }
   }

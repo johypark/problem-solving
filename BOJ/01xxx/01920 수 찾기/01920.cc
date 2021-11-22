@@ -9,17 +9,17 @@ int main() {
 
   int n, m;
   set<int> a;
-  int number;
+  int num;
 
   cin >> n;
   for (int i = 0; i < n; i++) {
-    cin >> number;
-    a.insert(number);
+    cin >> num;
+    a.insert(num);
   }
 
   cin >> m;
   for (int i = 0; i < m; i++) {
-    cin >> number;
-    cout << (a.find(number) != a.end()) << '\n';
+    cin >> num;
+    cout << (a.find(num) != a.end()) << '\n';
   }
 }

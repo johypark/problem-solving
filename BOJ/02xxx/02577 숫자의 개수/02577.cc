@@ -5,22 +5,22 @@ enum { BASE = 10 };
 
 using namespace std;
 
-vector<int> getNumbersUsed(int number) {
-  vector<int> numbersUsed(BASE);
+vector<int> getNumsUsed(int num) {
+  vector<int> numsUsed(BASE);
 
-  while (number > 0) {
-    numbersUsed[number % BASE]++;
-    number /= BASE;
+  while (num > 0) {
+    numsUsed[num % BASE]++;
+    num /= BASE;
   }
 
-  return numbersUsed;
+  return numsUsed;
 }
 
 int main() {
   int a, b, c;
   cin >> a >> b >> c;
 
-  vector<int> numbersUsed = getNumbersUsed(a * b * c);
-  for (const int &number : numbersUsed)
-    cout << number << '\n';
+  vector<int> numsUsed = getNumsUsed(a * b * c);
+  for (const int &num : numsUsed)
+    cout << num << '\n';
 }

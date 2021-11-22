@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-enum { MAX_NUMBER = 123456 };
+enum { MAX_NUM = 123456 };
 
 using namespace std;
 
@@ -26,7 +26,7 @@ vector<bool> getPrimeTable(int max) {
 
 int main() {
   int n;
-  vector<bool> primeTable = getPrimeTable(MAX_NUMBER * 2);
+  vector<bool> primeTable = getPrimeTable(MAX_NUM * 2);
   while (true) {
     cin >> n;
 

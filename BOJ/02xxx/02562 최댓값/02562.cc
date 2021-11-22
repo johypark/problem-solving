@@ -6,15 +6,15 @@ enum { LENGTH = 9 };
 
 using namespace std;
 
-int getMaxNumberIndex(vector<int> numbers) {
-  return max_element(numbers.begin(), numbers.end()) - numbers.begin();
+int getMaxNumIndex(vector<int> nums) {
+  return max_element(nums.begin(), nums.end()) - nums.begin();
 }
 
 int main() {
-  vector<int> numbers(LENGTH);
-  for (int &number : numbers)
-    cin >> number;
+  vector<int> nums(LENGTH);
+  for (int &num : nums)
+    cin >> num;
 
-  int maxIndex = getMaxNumberIndex(numbers);
-  cout << numbers[maxIndex] << '\n' << maxIndex + 1 << endl;
+  int maxIndex = getMaxNumIndex(nums);
+  cout << nums[maxIndex] << '\n' << maxIndex + 1 << endl;
 }

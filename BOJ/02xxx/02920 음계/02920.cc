@@ -5,14 +5,14 @@ enum { LENGTH = 8 };
 
 using namespace std;
 
-void printScaleOrder(const vector<int> &numbers) {
+void printScaleOrder(const vector<int> &nums) {
   bool isAscending = true;
   bool isDescending = true;
 
-  for (int i = 0; i < numbers.size(); i++) {
-    if (numbers[i] != i + 1)
+  for (int i = 0; i < nums.size(); i++) {
+    if (nums[i] != i + 1)
       isAscending = false;
-    if (numbers[i] != numbers.size() - i)
+    if (nums[i] != nums.size() - i)
       isDescending = false;
   }
 
@@ -27,9 +27,9 @@ void printScaleOrder(const vector<int> &numbers) {
 }
 
 int main() {
-  vector<int> numbers(LENGTH);
-  for (int &number : numbers)
-    cin >> number;
+  vector<int> nums(LENGTH);
+  for (int &num : nums)
+    cin >> num;
 
-  printScaleOrder(numbers);
+  printScaleOrder(nums);
 }

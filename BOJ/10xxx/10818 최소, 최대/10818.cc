@@ -8,10 +8,10 @@ int main() {
   int n;
   cin >> n;
 
-  vector<int> numbers(n);
-  for (int &number : numbers)
-    cin >> number;
+  vector<int> nums(n);
+  for (int &num : nums)
+    cin >> num;
 
-  cout << *min_element(numbers.begin(), numbers.end()) << ' '
-       << *max_element(numbers.begin(), numbers.end()) << endl;
+  cout << *min_element(nums.begin(), nums.end()) << ' '
+       << *max_element(nums.begin(), nums.end()) << endl;
 }

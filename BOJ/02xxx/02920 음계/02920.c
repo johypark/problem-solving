@@ -3,13 +3,13 @@
 
 enum { LENGTH = 8 };
 
-void print_scale_order(const int *numbers, int length) {
+void print_scale_order(const int *nums, int length) {
   bool is_ascending = true;
   bool is_descending = true;
   for (int i = 0; i < length; i++) {
-    if (numbers[i] != i + 1)
+    if (nums[i] != i + 1)
       is_ascending = false;
-    if (numbers[i] != length - i)
+    if (nums[i] != length - i)
       is_descending = false;
   }
 
@@ -24,9 +24,9 @@ void print_scale_order(const int *numbers, int length) {
 }
 
 int main(void) {
-  int numbers[LENGTH];
+  int nums[LENGTH];
   for (int i = 0; i < LENGTH; i++)
-    scanf("%d", &numbers[i]);
+    scanf("%d", &nums[i]);
 
-  print_scale_order(numbers, LENGTH);
+  print_scale_order(nums, LENGTH);
 }

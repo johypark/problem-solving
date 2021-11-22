@@ -11,13 +11,13 @@ bool isPalindrom(const string &word) {
 }
 
 int main() {
-  string number;
+  string num;
   while (true) {
-    cin >> number;
+    cin >> num;
 
-    if (number == "0")
+    if (num == "0")
       return 0;
 
-    cout << (isPalindrom(number) ? "yes" : "no") << '\n';
+    cout << (isPalindrom(num) ? "yes" : "no") << '\n';
   }
 }

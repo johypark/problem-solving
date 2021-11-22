@@ -3,23 +3,23 @@
 
 enum { BASE = 10 };
 
-int *get_numbers_used(int number) {
-  int *numbers_used = calloc(BASE, sizeof(int));
-  while (number > 0) {
-    numbers_used[number % BASE]++;
-    number /= BASE;
+int *get_nums_used(int num) {
+  int *nums_used = calloc(BASE, sizeof(int));
+  while (num > 0) {
+    nums_used[num % BASE]++;
+    num /= BASE;
   }
 
-  return numbers_used;
+  return nums_used;
 }
 
 int main(void) {
   int a, b, c;
   scanf("%d%d%d", &a, &b, &c);
 
-  int *numbers_used = get_numbers_used(a * b * c);
+  int *nums_used = get_nums_used(a * b * c);
   for (int i = 0; i < BASE; i++)
-    printf("%d\n", numbers_used[i]);
+    printf("%d\n", nums_used[i]);
 
-  free(numbers_used);
+  free(nums_used);
 }

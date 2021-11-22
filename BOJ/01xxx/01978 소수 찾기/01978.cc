@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-enum { MAX_NUMBER = 1000 };
+enum { MAX_NUM = 1000 };
 
 using namespace std;
 
@@ -28,12 +28,12 @@ int main() {
   int n;
   cin >> n;
 
-  vector<bool> primeTable = getPrimeTable(MAX_NUMBER);
-  int number;
+  vector<bool> primeTable = getPrimeTable(MAX_NUM);
+  int num;
   int count = 0;
   for (int i = 0; i < n; i++) {
-    cin >> number;
-    if (primeTable[number])
+    cin >> num;
+    if (primeTable[num])
       count++;
   }
 

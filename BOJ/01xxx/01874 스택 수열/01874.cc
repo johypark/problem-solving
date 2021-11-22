@@ -4,23 +4,23 @@
 
 using namespace std;
 
-void printStackLog(const vector<int> &numbers) {
+void printStackLog(const vector<int> &nums) {
   int count = 1;
   stack<int> stack;
   vector<char> log;
 
   // Set log size
-  log.reserve(numbers.size() * 2);
+  log.reserve(nums.size() * 2);
 
-  for (const int &number : numbers) {
+  for (const int &num : nums) {
     // Push
-    while (number >= count) {
+    while (num >= count) {
       stack.push(count++);
       log.push_back('+');
     }
 
     // Pop
-    if (stack.top() != number) {
+    if (stack.top() != num) {
       cout << "NO" << endl;
       return;
     }
@@ -37,9 +37,9 @@ int main() {
   int n;
   cin >> n;
 
-  vector<int> numbers(n);
-  for (int &number : numbers)
-    cin >> number;
+  vector<int> nums(n);
+  for (int &num : nums)
+    cin >> num;
 
-  printStackLog(numbers);
+  printStackLog(nums);
 }

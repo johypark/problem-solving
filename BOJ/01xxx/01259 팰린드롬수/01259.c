@@ -14,13 +14,13 @@ bool is_palindrom(const char *word) {
 }
 
 int main(void) {
-  char number[MAX_LENGTH + 1];
+  char num[MAX_LENGTH + 1];
   while (true) {
-    scanf("%s", number);
+    scanf("%s", num);
 
-    if (!strcmp(number, "0"))
+    if (!strcmp(num, "0"))
       return 0;
 
-    printf("%s\n", is_palindrom(number) ? "yes" : "no");
+    printf("%s\n", is_palindrom(num) ? "yes" : "no");
   }
 }

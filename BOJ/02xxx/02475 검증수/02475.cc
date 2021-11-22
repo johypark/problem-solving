@@ -5,21 +5,21 @@ enum { LENGTH = 5 };
 
 using namespace std;
 
-int getVerificationNumber(const vector<int> &numbers) {
-  int verificationNumber;
+int getVerificationNum(const vector<int> &nums) {
+  int verificationNum;
   int sum = 0;
 
-  for (const int &number : numbers)
-    sum += number * number;
+  for (const int &num : nums)
+    sum += num * num;
 
-  verificationNumber = sum % 10;
-  return verificationNumber;
+  verificationNum = sum % 10;
+  return verificationNum;
 }
 
 int main() {
-  vector<int> numbers(LENGTH);
-  for (int &number : numbers)
-    cin >> number;
+  vector<int> nums(LENGTH);
+  for (int &num : nums)
+    cin >> num;
 
-  cout << getVerificationNumber(numbers) << endl;
+  cout << getVerificationNum(nums) << endl;
 }

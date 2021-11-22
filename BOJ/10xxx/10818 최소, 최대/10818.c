@@ -1,20 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int get_max(const int *numbers, int length) {
-  int max = numbers[0];
+int get_max(const int *nums, int length) {
+  int max = nums[0];
   for (int i = 1; i < length; i++)
-    if (numbers[i] > max)
-      max = numbers[i];
+    if (nums[i] > max)
+      max = nums[i];
 
   return max;
 }
 
-int get_min(const int *numbers, int length) {
-  int min = numbers[0];
+int get_min(const int *nums, int length) {
+  int min = nums[0];
   for (int i = 1; i < length; i++)
-    if (numbers[i] < min)
-      min = numbers[i];
+    if (nums[i] < min)
+      min = nums[i];
 
   return min;
 }
@@ -23,11 +23,11 @@ int main(void) {
   int n;
   scanf("%d", &n);
 
-  int *numbers = malloc(sizeof(int) * n);
+  int *nums = malloc(sizeof(int) * n);
   for (int i = 0; i < n; i++)
-    scanf("%d", &numbers[i]);
+    scanf("%d", &nums[i]);
 
-  printf("%d %d\n", get_min(numbers, n), get_max(numbers, n));
+  printf("%d %d\n", get_min(nums, n), get_max(nums, n));
 
-  free(numbers);
+  free(nums);
 }

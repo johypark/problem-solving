@@ -4,7 +4,7 @@ enum { DIAL_DELAY = 1 };
 
 using namespace std;
 
-int getDialNumber(char ch) {
+int getDialNum(char ch) {
   if (ch <= 'C')
     return 2;
   if (ch <= 'F')
@@ -31,7 +31,7 @@ int main() {
 
   int time = 0;
   for (const char &ch : s)
-    time += getDialNumber(ch) + DIAL_DELAY;
+    time += getDialNum(ch) + DIAL_DELAY;
 
   cout << time << endl;
 }

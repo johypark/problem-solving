@@ -2,21 +2,21 @@
 
 enum { LENGTH = 5 };
 
-int get_verification_number(const int *numbers, int length) {
-  int verification_number;
+int get_verification_num(const int *nums, int length) {
+  int verification_num;
   int sum = 0;
 
   for (int i = 0; i < length; i++)
-    sum += numbers[i] * numbers[i];
+    sum += nums[i] * nums[i];
 
-  verification_number = sum % 10;
-  return verification_number;
+  verification_num = sum % 10;
+  return verification_num;
 }
 
 int main(void) {
-  int numbers[LENGTH];
+  int nums[LENGTH];
   for (int i = 0; i < LENGTH; i++)
-    scanf("%d", &numbers[i]);
+    scanf("%d", &nums[i]);
 
-  printf("%d\n", get_verification_number(numbers, LENGTH));
+  printf("%d\n", get_verification_num(nums, LENGTH));
 }

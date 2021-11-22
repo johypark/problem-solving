@@ -60,7 +60,7 @@ Element peek_stack(Stack *stack) {
   return stack->data[stack->size - 1];
 }
 
-void print_stack_log(const int *numbers, int length) {
+void print_stack_log(const int *nums, int length) {
   const int LOG_LENGTH = length * 2;
 
   // Save log
@@ -70,13 +70,13 @@ void print_stack_log(const int *numbers, int length) {
   int log_index = 0;
   for (int i = 0; i < length; i++) {
     // Push
-    while (numbers[i] >= count) {
+    while (nums[i] >= count) {
       push_stack(stack, count++);
       log[log_index++] = '+';
     }
 
     // Pop
-    if (pop_stack(stack) != numbers[i]) {
+    if (pop_stack(stack) != nums[i]) {
       printf("NO\n");
       free_stack(stack);
       free(log);
@@ -99,11 +99,11 @@ int main(void) {
   int n;
   scanf("%d", &n);
 
-  int *numbers = malloc(sizeof(int) * n);
+  int *nums = malloc(sizeof(int) * n);
   for (int i = 0; i < n; i++)
-    scanf("%d", &numbers[i]);
+    scanf("%d", &nums[i]);
 
-  print_stack_log(numbers, n);
+  print_stack_log(nums, n);
 
-  free(numbers);
+  free(nums);
 }

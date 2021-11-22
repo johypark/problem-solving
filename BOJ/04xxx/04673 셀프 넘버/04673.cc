@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-enum { MAX_NUMBER = 10000 };
+enum { MAX_NUM = 10000 };
 
 using namespace std;
 
@@ -15,25 +15,25 @@ int getDigitsum(int n) {
   return digitsum;
 }
 
-vector<bool> getSelfNumberTable(int max) {
+vector<bool> getSelfNumTable(int max) {
   // Initialize
-  vector<bool> selfNumberTable(max + 1, true);
-  selfNumberTable[0] = false;
+  vector<bool> selfNumTable(max + 1, true);
+  selfNumTable[0] = false;
 
   int digitsum;
   for (int i = 1; i < max; i++) {
     digitsum = getDigitsum(i);
     if (digitsum <= max)
-      selfNumberTable[digitsum] = false;
+      selfNumTable[digitsum] = false;
   }
 
-  return selfNumberTable;
+  return selfNumTable;
 }
 
 int main() {
-  vector<bool> selfNumberTable = getSelfNumberTable(MAX_NUMBER);
-  for (size_t i = 0; i < selfNumberTable.size(); i++) {
-    if (selfNumberTable[i])
+  vector<bool> selfNumTable = getSelfNumTable(MAX_NUM);
+  for (size_t i = 0; i < selfNumTable.size(); i++) {
+    if (selfNumTable[i])
       cout << i << '\n';
   }
 }

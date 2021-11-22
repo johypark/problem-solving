@@ -6,27 +6,27 @@
 
 using namespace std;
 
-int getSecondSmallestMode(vector<int> numbers) {
+int getSecondSmallestMode(vector<int> nums) {
   int count = 1;
   int mode_count = 1;
-  int mode = numbers[0];
-  bool is_second = false;
+  int mode = nums[0];
+  bool isSecond = false;
 
-  for (size_t i = 1; i < numbers.size(); i++) {
-    if (numbers[i] == numbers[i - 1])
+  for (size_t i = 1; i < nums.size(); i++) {
+    if (nums[i] == nums[i - 1])
       count++;
     else
       count = 1;
 
     if (mode_count < count) {
       // New mode
-      mode = numbers[i];
+      mode = nums[i];
       mode_count = count;
-      is_second = false;
-    } else if (mode_count == count && !is_second) {
+      isSecond = false;
+    } else if (mode_count == count && !isSecond) {
       // Second smallest mode
-      mode = numbers[i];
-      is_second = true;
+      mode = nums[i];
+      isSecond = true;
     }
   }
 
@@ -37,17 +37,16 @@ int main() {
   int n;
   cin >> n;
 
-  vector<int> numbers(n);
-  for (int &number : numbers)
-    cin >> number;
+  vector<int> nums(n);
+  for (int &num : nums)
+    cin >> num;
 
-  sort(numbers.begin(), numbers.end());
+  sort(nums.begin(), nums.end());
 
-  int average =
-      round(accumulate(numbers.begin(), numbers.end(), 0.0) / numbers.size());
-  int median = numbers[numbers.size() / 2];
-  int secondSmallestMode = getSecondSmallestMode(numbers);
-  int range = *(numbers.end() - 1) - *numbers.begin();
+  int average = round(accumulate(nums.begin(), nums.end(), 0.0) / nums.size());
+  int median = nums[nums.size() / 2];
+  int secondSmallestMode = getSecondSmallestMode(nums);
+  int range = *(nums.end() - 1) - *nums.begin();
 
   cout << average << '\n'
        << median << '\n'
