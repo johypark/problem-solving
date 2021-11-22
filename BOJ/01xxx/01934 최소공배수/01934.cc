@@ -1,17 +1,7 @@
 #include <iostream>
+#include <numeric>
 
 using namespace std;
-
-int getGCD(int a, int b) {
-  int remainder;
-  while (b) {
-    remainder = a % b;
-    a = b;
-    b = remainder;
-  }
-
-  return a;
-}
 
 int main() {
   int t;
@@ -21,7 +11,6 @@ int main() {
   for (int i = 0; i < t; i++) {
     cin >> a >> b;
 
-    int lcm = a * b / getGCD(a, b);
-    cout << lcm << '\n';
+    cout << lcm(a, b) << '\n';
   }
 }

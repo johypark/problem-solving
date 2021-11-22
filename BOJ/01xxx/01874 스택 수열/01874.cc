@@ -6,26 +6,26 @@ using namespace std;
 
 void printStackLog(const vector<int> &nums) {
   int count = 1;
-  stack<int> stack;
+  stack<int> intStack;
   vector<char> log;
 
-  // Set log size
+  // Reserve log size
   log.reserve(nums.size() * 2);
 
   for (const int &num : nums) {
     // Push
     while (num >= count) {
-      stack.push(count++);
+      intStack.push(count++);
       log.push_back('+');
     }
 
     // Pop
-    if (stack.top() != num) {
+    if (intStack.top() != num) {
       cout << "NO" << endl;
       return;
     }
 
-    stack.pop();
+    intStack.pop();
     log.push_back('-');
   }
 
