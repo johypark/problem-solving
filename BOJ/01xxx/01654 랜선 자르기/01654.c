@@ -1,30 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int get_max_cable_length(int *cables, int length, int n) {
-  int max = cables[0];
+int get_max_cable_length(const int *cables, int length, int n) {
+  long long max = cables[0];
   for (int i = 1; i < length; i++)
     if (max < cables[i])
       max = cables[i];
 
-  unsigned int left = 1;
-  unsigned int right = max;
-  unsigned int mid = (left + right) / 2;
-  int count;
-  while (left <= right) {
+  long long low = 1;
+  long long high = max + 1;
+  long long mid, count;
+  while (low < high) {
+    mid = low + (high - low) / 2;
     count = 0;
     for (int i = 0; i < length; i++)
       count += cables[i] / mid;
 
     if (count >= n)
-      left = mid + 1;
+      low = mid + 1;
     else
-      right = mid - 1;
-
-    mid = (left + right) / 2;
+      high = mid;
   }
 
-  return mid;
+  // Return upper bound - 1
+  return low - 1;
 }
 
 int main(void) {

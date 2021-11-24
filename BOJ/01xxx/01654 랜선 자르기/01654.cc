@@ -5,24 +5,24 @@
 using namespace std;
 
 int getMaxCableLength(const vector<int> &cables, int n) {
-  unsigned int left = 1;
-  unsigned int right = *max_element(cables.begin(), cables.end());
-  unsigned int mid = (left + right) / 2;
-  int count;
-  while (left <= right) {
+  long long low = 1;
+  long long high =
+      static_cast<long long>(*max_element(cables.begin(), cables.end())) + 1;
+  long long mid, count;
+  while (low < high) {
+    mid = low + (high - low) / 2;
     count = 0;
     for (const int &cable : cables)
       count += cable / mid;
 
     if (count >= n)
-      left = mid + 1;
+      low = mid + 1;
     else
-      right = mid - 1;
-
-    mid = (left + right) / 2;
+      high = mid;
   }
 
-  return mid;
+  // Return upper bound - 1
+  return low - 1;
 }
 
 int main() {
