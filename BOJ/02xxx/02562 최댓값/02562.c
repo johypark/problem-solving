@@ -5,7 +5,6 @@ enum { LENGTH = 9 };
 int get_max_num_index(const int *nums, int length) {
   int max_index = -1;
   int max = 0;
-
   for (int i = 0; i < length; i++)
     if (max < nums[i]) {
       max_index = i;

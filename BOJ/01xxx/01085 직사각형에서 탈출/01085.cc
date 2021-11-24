@@ -3,10 +3,10 @@
 using namespace std;
 
 int getMinDistance(int x, int y, int width, int height) {
-  int distanceX = x < width - x ? x : width - x;
-  int distanceY = y < height - y ? y : height - y;
+  int distanceX = min(x, width - x);
+  int distanceY = min(y, height - y);
 
-  return distanceX < distanceY ? distanceX : distanceY;
+  return min(distanceX, distanceY);
 }
 
 int main() {

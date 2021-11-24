@@ -25,7 +25,7 @@ vector<bool> getPrimeTable(int max) {
 }
 
 int main() {
-  int n;
+  int n, count;
   vector<bool> primeTable = getPrimeTable(MAX_NUM * 2);
   while (true) {
     cin >> n;
@@ -33,7 +33,7 @@ int main() {
     if (n == 0)
       break;
 
-    int count = 0;
+    count = 0;
     for (int i = n + 1; i <= n * 2; i++)
       count += primeTable[i];
 

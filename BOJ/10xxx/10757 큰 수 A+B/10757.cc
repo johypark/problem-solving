@@ -4,7 +4,7 @@ using namespace std;
 
 string sumStringNum(const string &a, const string &b) {
   string sum;
-  int maxSize = (a.size() > b.size() ? a.size() : b.size()) + 1;
+  int maxSize = max(a.size(), b.size()) + 1;
   sum.reserve(maxSize);
 
   int iA = a.size();
