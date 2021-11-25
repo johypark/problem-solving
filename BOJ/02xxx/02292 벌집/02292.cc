@@ -7,15 +7,15 @@ int main() {
   cin >> n;
 
   int i = 0;
-  int max = 1;
+  int maxNum = 1;
   int count = 0;
   while (true) {
     count++;
 
-    if (n <= max)
+    if (n <= maxNum)
       break;
 
-    max += ++i * 6;
+    maxNum += ++i * 6;
   }
 
   cout << count << endl;

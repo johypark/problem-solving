@@ -29,9 +29,9 @@ int main() {
   string s;
   cin >> s;
 
-  int time = 0;
+  int sec = 0;
   for (const char &ch : s)
-    time += getDialNum(ch) + DIAL_DELAY;
+    sec += getDialNum(ch) + DIAL_DELAY;
 
-  cout << time << endl;
+  cout << sec << endl;
 }

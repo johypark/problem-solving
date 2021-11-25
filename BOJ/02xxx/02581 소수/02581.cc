@@ -4,18 +4,18 @@
 
 using namespace std;
 
-vector<bool> getPrimeTable(int max) {
-  int sqrtN = sqrt(max);
+vector<bool> getPrimeTable(int maxNum) {
+  int sqrtN = sqrt(maxNum);
 
   // Initialize
-  vector<bool> primeTable(max + 1, true);
+  vector<bool> primeTable(maxNum + 1, true);
   for (int i = 0; i < 2; i++)
     primeTable[i] = false;
 
   // Eratos
   for (int i = 2; i <= sqrtN; i++)
     if (primeTable[i]) {
-      for (int j = i * i; j <= max; j += i)
+      for (int j = i * i; j <= maxNum; j += i)
         primeTable[j] = false;
     }
 
@@ -28,16 +28,16 @@ int main() {
 
   vector<bool> primeTable = getPrimeTable(n);
   int sum = 0;
-  int min = -1;
+  int minPrime = -1;
   for (int i = m; i <= n; i++) {
     if (primeTable[i]) {
       if (!sum)
-        min = i;
+        minPrime = i;
       sum += i;
     }
   }
 
   if (sum)
     cout << sum << '\n';
-  cout << min << endl;
+  cout << minPrime << endl;
 }
