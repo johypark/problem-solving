@@ -15,15 +15,15 @@ int getDigitsum(int n) {
   return digitsum;
 }
 
-vector<bool> getSelfNumTable(int maxNum) {
+vector<bool> getSelfNumTable(int n) {
   // Initialize
-  vector<bool> selfNumTable(maxNum + 1, true);
+  vector<bool> selfNumTable(n + 1, true);
   selfNumTable[0] = false;
 
   int digitsum;
-  for (int i = 1; i < maxNum; i++) {
+  for (int i = 1; i < n; i++) {
     digitsum = getDigitsum(i);
-    if (digitsum <= maxNum)
+    if (digitsum <= n)
       selfNumTable[digitsum] = false;
   }
 

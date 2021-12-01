@@ -5,8 +5,8 @@ enum { MAX_NUM = 40 };
 
 using namespace std;
 
-vector<int> getFibonacciSequence(int maxNum) {
-  vector<int> fibonacciSequence(maxNum + 1);
+vector<int> getFibonacciSequence(int n) {
+  vector<int> fibonacciSequence(n + 1);
   fibonacciSequence[0] = 0;
   fibonacciSequence[1] = 1;
   for (size_t i = 2; i < fibonacciSequence.size(); i++)

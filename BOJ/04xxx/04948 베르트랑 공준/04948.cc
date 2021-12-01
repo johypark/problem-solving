@@ -6,18 +6,18 @@ enum { MAX_NUM = 123456 };
 
 using namespace std;
 
-vector<bool> getPrimeTable(int maxNum) {
-  int sqrtN = sqrt(maxNum);
+vector<bool> getPrimeTable(int n) {
+  int sqrtN = sqrt(n);
 
   // Initialize
-  vector<bool> primeTable(maxNum + 1, true);
+  vector<bool> primeTable(n + 1, true);
   for (int i = 0; i < 2; i++)
     primeTable[i] = false;
 
   // Eratos
   for (int i = 2; i <= sqrtN; i++)
     if (primeTable[i]) {
-      for (int j = i * i; j <= maxNum; j += i)
+      for (int j = i * i; j <= n; j += i)
         primeTable[j] = false;
     }
 
