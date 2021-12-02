@@ -4,7 +4,7 @@
 using namespace std;
 
 // DFS
-void printPermutations(vector<int> &permutation, vector<int> &isVisited,
+void printPermutations(vector<int> &permutation, vector<bool> &isVisited,
                        size_t r) {
   if (permutation.size() == r) {
     for (const int &num : permutation)
@@ -27,7 +27,8 @@ int main() {
   int n, m;
   cin >> n >> m;
 
-  vector<int> permutation, isVisited(n + 1);
+  vector<int> permutation;
   permutation.reserve(m);
+  vector<bool> isVisited(n + 1);
   printPermutations(permutation, isVisited, m);
 }

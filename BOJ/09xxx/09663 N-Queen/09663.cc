@@ -5,7 +5,7 @@
 using namespace std;
 
 // DFS
-void nQueen(vector<int> &queens, vector<int> &isVisited, int &count) {
+void nQueen(vector<int> &queens, vector<bool> &isVisited, int &count) {
   if (queens.size() == isVisited.size()) {
     count++;
   } else {
@@ -40,8 +40,9 @@ int main() {
   int n;
   cin >> n;
 
-  vector<int> queens, isVisited(n);
+  vector<int> queens;
   queens.reserve(n);
+  vector<bool> isVisited(n);
   int count = 0;
   nQueen(queens, isVisited, count);
 
