@@ -8,22 +8,22 @@ int getStairNumCount(int n) {
   const int DIVISOR = 1000000000;
 
   array<int, 10> prev, curr;
-  prev[0] = 0;
+  curr[0] = 0;
   for (int i = 1; i <= 9; i++)
-    prev[i] = 1;
+    curr[i] = 1;
 
   int left, right;
   for (int i = 2; i <= n; i++) {
+    prev = curr;
     for (int j = 0; j <= 9; j++) {
       left = j - 1 >= 0 ? prev[j - 1] : 0;
       right = j + 1 <= 9 ? prev[j + 1] : 0;
       curr[j] = (left + right) % DIVISOR;
     }
-    prev = curr;
   }
 
   int count = 0;
-  for (const int &num : prev) {
+  for (const int &num : curr) {
     count += num;
     count %= DIVISOR;
   }
