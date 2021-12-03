@@ -7,7 +7,7 @@ int main() {
   string n;
   cin >> n;
 
-  sort(n.begin(), n.end(), greater<char>());
+  sort(n.begin(), n.end(), greater());
 
   cout << n << endl;
 }

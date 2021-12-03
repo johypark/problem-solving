@@ -8,8 +8,8 @@ int getHashValue(const string &str) {
   const int M = 1234567891;
   long long hashValue = 0;
   long long multiplicand = 1;
-  for (size_t i = 0; i < str.size(); i++) {
-    hashValue += (str[i] - 'a' + 1) * multiplicand;
+  for (const char &ch : str) {
+    hashValue += (ch - 'a' + 1) * multiplicand;
     hashValue %= M;
 
     multiplicand *= R;
