@@ -9,11 +9,11 @@ int main() {
   cin >> n;
 
   vector<pair<int, int>> points(n);
-  for (auto &point : points)
-    cin >> point.first >> point.second;
+  for (auto &[x, y] : points)
+    cin >> x >> y;
 
   sort(points.begin(), points.end());
 
-  for (const auto &point : points)
-    cout << point.first << ' ' << point.second << '\n';
+  for (const auto &[x, y] : points)
+    cout << x << ' ' << y << '\n';
 }

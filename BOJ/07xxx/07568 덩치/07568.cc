@@ -8,16 +8,14 @@ int main() {
   cin >> n;
 
   vector<pair<int, int>> people(n);
-  for (auto &person : people)
-    cin >> person.first >> person.second;
+  for (auto &[weight, height] : people)
+    cin >> weight >> height;
 
-  for (auto &person : people) {
+  for (const auto &[weight, height] : people) {
     int rank = 1;
-    for (auto &target : people) {
-      if (person.first < target.first && person.second < target.second) {
+    for (const auto &[targetWeight, targetHeight] : people)
+      if (weight < targetWeight && height < targetHeight)
         rank++;
-      }
-    }
 
     cout << rank << ' ';
   }

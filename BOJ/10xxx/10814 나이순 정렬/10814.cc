@@ -13,11 +13,11 @@ int main() {
   cin >> n;
 
   vector<pair<int, string>> people(n);
-  for (auto &person : people)
-    cin >> person.first >> person.second;
+  for (auto &[age, name] : people)
+    cin >> age >> name;
 
   stable_sort(people.begin(), people.end(), compare);
 
-  for (const auto &person : people)
-    cout << person.first << ' ' << person.second << '\n';
+  for (const auto &[age, name] : people)
+    cout << age << ' ' << name << '\n';
 }

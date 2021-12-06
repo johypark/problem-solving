@@ -7,9 +7,8 @@ using namespace std;
 
 int main() {
   array<pair<int, int>, 3> points;
-  for (auto &point : points) {
-    cin >> point.first >> point.second;
-  }
+  for (auto &[x, y] : points)
+    cin >> x >> y;
 
   pair<int, int> fourthPoint = points[0];
   if (fourthPoint.first == points[1].first)

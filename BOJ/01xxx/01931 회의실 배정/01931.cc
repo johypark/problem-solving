@@ -16,17 +16,17 @@ int main() {
   cin >> n;
 
   vector<pair<int, int>> meetings(n);
-  for (auto &meeting : meetings)
-    cin >> meeting.first >> meeting.second;
+  for (auto &[meetStart, meetEnd] : meetings)
+    cin >> meetStart >> meetEnd;
 
   sort(meetings.begin(), meetings.end(), compare);
 
-  int end = 0;
+  int endTime = 0;
   int count = 0;
-  for (const auto &meeting : meetings) {
-    if (end <= meeting.first) {
+  for (const auto &[meetStart, meetEnd] : meetings) {
+    if (endTime <= meetStart) {
       count++;
-      end = meeting.second;
+      endTime = meetEnd;
     }
   }
 
