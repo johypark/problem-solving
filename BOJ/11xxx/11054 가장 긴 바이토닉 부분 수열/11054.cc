@@ -1,0 +1,47 @@
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int getMaxBitonicSequenceLength(const vector<int> &sequence) {
+  int maxLength;
+  vector<int> lengths(sequence.size());
+  for (size_t i = 0; i < sequence.size(); i++) {
+    maxLength = 0;
+    for (size_t j = 0; j < i; j++)
+      if (sequence[j] < sequence[i])
+        maxLength = max(maxLength, lengths[j]);
+
+    lengths[i] = maxLength + 1;
+  }
+
+  // Reverse
+  vector<int> reverseLengths(sequence.size());
+  for (int i = sequence.size() - 1; i >= 0; i--) {
+    maxLength = 0;
+    for (size_t j = i + 1; j < sequence.size(); j++)
+      if (sequence[j] < sequence[i])
+        maxLength = max(maxLength, reverseLengths[j]);
+
+    reverseLengths[i] = maxLength + 1;
+  }
+
+  int maxSequenceLength = 0;
+  for (size_t i = 0; i < sequence.size(); i++)
+    maxSequenceLength =
+        max(maxSequenceLength, lengths[i] + reverseLengths[i] - 1);
+
+  return maxSequenceLength;
+}
+
+int main() {
+  int n;
+  cin >> n;
+
+  vector<int> sequence(n);
+  for (int &num : sequence)
+    cin >> num;
+
+  cout << getMaxBitonicSequenceLength(sequence) << endl;
+}
