@@ -19,5 +19,5 @@ int main() {
       nums.pop_back();
   }
 
-  cout << accumulate(nums.begin(), nums.end(), 0) << endl;
+  cout << reduce(nums.begin(), nums.end()) << endl;
 }

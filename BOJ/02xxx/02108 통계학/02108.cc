@@ -43,10 +43,11 @@ int main() {
 
   sort(nums.begin(), nums.end());
 
-  int average = round(accumulate(nums.begin(), nums.end(), 0.0) / nums.size());
+  int average = round(static_cast<double>(reduce(nums.begin(), nums.end())) /
+                      nums.size());
   int median = nums[nums.size() / 2];
   int secondSmallestMode = getSecondSmallestMode(nums);
-  int range = *(nums.end() - 1) - *nums.begin();
+  int range = nums.back() - nums.front();
 
   cout << average << '\n'
        << median << '\n'

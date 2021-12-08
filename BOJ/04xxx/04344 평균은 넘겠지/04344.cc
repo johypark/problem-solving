@@ -8,7 +8,7 @@ using namespace std;
 
 double getAboveAverageRate(const vector<int> &scores) {
   double average =
-      accumulate(scores.begin(), scores.end(), 0.0) / scores.size();
+      static_cast<double>(reduce(scores.begin(), scores.end())) / scores.size();
 
   int aboveAverageCount = 0;
   for (int score : scores)
