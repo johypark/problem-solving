@@ -22,7 +22,7 @@ int main() {
   for (int i = 0; i < m; i++) {
     cin >> question;
 
-    if (isdigit(question[0]))
+    if (isdigit(question.front()))
       cout << pokemonNames[stoi(question)] << '\n';
     else
       cout << pokemonNumbers[question] << '\n';

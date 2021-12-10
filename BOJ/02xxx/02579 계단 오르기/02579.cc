@@ -8,7 +8,7 @@ int getMaxScore(const vector<int> &stairs) {
   int prev3 = 0;
   int prev2 = 0;
   int prev = 0;
-  int curr = stairs[0];
+  int curr = stairs.front();
   for (size_t i = 1; i < stairs.size(); i++) {
     prev3 = prev2;
     prev2 = prev;

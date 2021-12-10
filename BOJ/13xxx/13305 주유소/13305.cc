@@ -16,7 +16,7 @@ int main() {
   for (int &cost : costs)
     cin >> cost;
 
-  int cost = costs[0];
+  int cost = costs.front();
   long long sum = 0;
   for (size_t i = 0; i < lengths.size(); i++) {
     cost = min(cost, costs[i]);

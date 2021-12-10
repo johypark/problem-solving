@@ -9,9 +9,8 @@ using namespace std;
 int getSecondSmallestMode(vector<int> nums) {
   int count = 1;
   int mode_count = 1;
-  int mode = nums[0];
+  int mode = nums.front();
   bool isSecond = false;
-
   for (size_t i = 1; i < nums.size(); i++) {
     if (nums[i] == nums[i - 1])
       count++;

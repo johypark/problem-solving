@@ -8,9 +8,8 @@ int main() {
   cin >> n;
 
   queue<int> cardQueue;
-  for (int i = 1; i <= n; i++) {
+  for (int i = 1; i <= n; i++)
     cardQueue.push(i);
-  }
 
   while (cardQueue.size() > 1) {
     cardQueue.pop();

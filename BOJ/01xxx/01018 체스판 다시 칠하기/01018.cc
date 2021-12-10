@@ -33,7 +33,7 @@ int getMinChessboardRepaintCount(const vector<vector<bool>> &board, int x,
 // Get minimum repaint count on board to make chessboard
 int getMinRepaintCount(const vector<vector<bool>> &board) {
   const int CHESSBOARD_SIZE = 8;
-  int width = board[0].size();
+  int width = board.front().size();
   int height = board.size();
   int count = CHESSBOARD_SIZE * CHESSBOARD_SIZE;
   int chessboard_repaint_count;

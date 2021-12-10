@@ -8,7 +8,7 @@ int getMaxWine(const vector<int> &wines) {
   int prev3 = 0;
   int prev2 = 0;
   int prev = 0;
-  int curr = wines[0];
+  int curr = wines.front();
   for (size_t i = 1; i < wines.size(); i++) {
     prev3 = prev2;
     prev2 = prev;
