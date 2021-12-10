@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int getMaxBitonicSequenceLength(const vector<int> &sequence) {
+int getLongestBitonicSequenceLength(const vector<int> &sequence) {
   int maxLength;
   vector<int> lengths(sequence.size());
   for (size_t i = 0; i < sequence.size(); i++) {
@@ -43,5 +43,5 @@ int main() {
   for (int &num : sequence)
     cin >> num;
 
-  cout << getMaxBitonicSequenceLength(sequence) << endl;
+  cout << getLongestBitonicSequenceLength(sequence) << endl;
 }

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int getMaxIncreasingSequenceLength(const vector<int> &sequence) {
+int getLISLength(const vector<int> &sequence) {
   int maxLength;
   vector<int> lengths(sequence.size());
   int maxSequenceLength = 0;
@@ -29,5 +29,5 @@ int main() {
   for (int &num : sequence)
     cin >> num;
 
-  cout << getMaxIncreasingSequenceLength(sequence) << endl;
+  cout << getLISLength(sequence) << endl;
 }
