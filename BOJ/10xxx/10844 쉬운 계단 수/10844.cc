@@ -5,7 +5,7 @@
 using namespace std;
 
 int getStairNumCount(int n) {
-  const int DIVISOR = 1000000000;
+  const int MODULAR = 1000000000;
 
   array<int, 10> prev, curr;
   curr[0] = 0;
@@ -18,14 +18,14 @@ int getStairNumCount(int n) {
     for (int j = 0; j <= 9; j++) {
       left = j - 1 >= 0 ? prev[j - 1] : 0;
       right = j + 1 <= 9 ? prev[j + 1] : 0;
-      curr[j] = (left + right) % DIVISOR;
+      curr[j] = (left + right) % MODULAR;
     }
   }
 
   int count = 0;
   for (const int &num : curr) {
     count += num;
-    count %= DIVISOR;
+    count %= MODULAR;
   }
 
   return count;

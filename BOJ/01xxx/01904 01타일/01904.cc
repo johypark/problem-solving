@@ -3,12 +3,12 @@
 using namespace std;
 
 int getCountTileCases(int n) {
-  const int DIVISOR = 15746;
+  const int MODULAR = 15746;
   int prev = 1;
   int curr = 1;
   int next;
   for (int i = 2; i <= n; i++) {
-    next = (prev + curr) % DIVISOR;
+    next = (prev + curr) % MODULAR;
     prev = curr;
     curr = next;
   }

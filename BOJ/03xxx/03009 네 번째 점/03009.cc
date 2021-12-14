@@ -1,8 +1,6 @@
 #include <array>
 #include <iostream>
 
-enum { LENGTH = 10, DIVISOR = 42 };
-
 using namespace std;
 
 int main() {
