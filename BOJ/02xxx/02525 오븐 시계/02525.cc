@@ -16,16 +16,17 @@ public:
 
   Time operator+(const Time &time) {
     int minute = this->minute + time.minute;
-    minute %= 24 * 60;
 
     return Time(minute);
   }
 
-  friend ostream &operator<<(ostream &os, const Time &time) {
-    os << time.minute / 60 << ' ' << time.minute % 60;
-    return os;
-  }
+  friend ostream &operator<<(ostream &os, const Time &time);
 };
+
+ostream &operator<<(ostream &os, const Time &time) {
+  os << time.minute / 60 << ' ' << time.minute % 60;
+  return os;
+}
 
 int main() {
   int a, b;
