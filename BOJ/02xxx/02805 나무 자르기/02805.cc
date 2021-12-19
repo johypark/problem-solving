@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Upper bound - 1
 int getMaxSawbladeHeight(const vector<int> &woods, int m) {
   long long low = 0;
   long long high = *max_element(woods.begin(), woods.end());
@@ -21,7 +22,6 @@ int getMaxSawbladeHeight(const vector<int> &woods, int m) {
       high = mid;
   }
 
-  // Return upper bound - 1
   return low - 1;
 }
 

@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Upper bound - 1
 int getMaxCableLength(const vector<int> &cables, int n) {
   long long low = 1;
   long long high =
@@ -21,7 +22,6 @@ int getMaxCableLength(const vector<int> &cables, int n) {
       high = mid;
   }
 
-  // Return upper bound - 1
   return low - 1;
 }
 
