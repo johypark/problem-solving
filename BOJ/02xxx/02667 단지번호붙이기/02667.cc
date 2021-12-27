@@ -42,8 +42,8 @@ int main() {
 
   char input;
   vector<vector<bool>> complex(n, vector<bool>(n));
-  for (int i = 0; i < complex.size(); i++) {
-    for (int j = 0; j < complex.front().size(); j++) {
+  for (size_t i = 0; i < complex.size(); i++) {
+    for (size_t j = 0; j < complex.front().size(); j++) {
       cin >> input;
       complex[i][j] = atoi(&input);
     }
