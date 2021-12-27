@@ -6,6 +6,8 @@
 using namespace std;
 
 int getMinPathLength(const vector<vector<bool>> &maze) {
+  const vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
   queue<tuple<size_t, size_t, int, bool>> q;
   q.push({0, 0, 1, true});
 
@@ -13,30 +15,24 @@ int getMinPathLength(const vector<vector<bool>> &maze) {
       maze.size(), vector<vector<bool>>(maze.front().size(), vector<bool>(2)));
   while (!q.empty()) {
     auto [x, y, length, canBrake] = q.front();
-
-    if (maze[y][x] && canBrake && !isVisited[y][x][0]) {
-      isVisited[y][x][0] = true;
-    } else if (!maze[y][x] && canBrake && !isVisited[y][x][1]) {
-      isVisited[y][x][1] = true;
-      canBrake = false;
-    } else if (maze[y][x] && !canBrake && !isVisited[y][x][1]) {
-      isVisited[y][x][1] = true;
-    } else {
-      q.pop();
-      continue;
-    }
-
     if (x == maze.front().size() - 1 && y == maze.size() - 1)
       return length;
 
-    if (x > 0)
-      q.push({x - 1, y, length + 1, canBrake});
-    if (x < maze.front().size() - 1)
-      q.push({x + 1, y, length + 1, canBrake});
-    if (y > 0)
-      q.push({x, y - 1, length + 1, canBrake});
-    if (y < maze.size() - 1)
-      q.push({x, y + 1, length + 1, canBrake});
+    size_t nx, ny;
+    for (size_t i = 0; i < directions.size(); i++) {
+      nx = x + directions[i].first;
+      ny = y + directions[i].second;
+      if (nx < maze.front().size() && ny < maze.size() &&
+          !isVisited[ny][nx][canBrake]) {
+        if (maze[ny][nx]) {
+          isVisited[ny][nx][canBrake] = true;
+          q.push({nx, ny, length + 1, canBrake});
+        } else if (canBrake) {
+          isVisited[ny][nx][canBrake] = true;
+          q.push({nx, ny, length + 1, false});
+        }
+      }
+    }
 
     q.pop();
   }
@@ -48,13 +44,12 @@ int main() {
   int n, m;
   cin >> n >> m;
 
-  char input;
+  string input;
   vector<vector<bool>> maze(n, vector<bool>(m));
-  for (size_t i = 0; i < maze.size(); i++) {
-    for (size_t j = 0; j < maze.front().size(); j++) {
-      cin >> input;
-      maze[i][j] = !atoi(&input);
-    }
+  for (auto &row : maze) {
+    cin >> input;
+    for (size_t i = 0; i < row.size(); i++)
+      row[i] = input[i] - '1';
   }
 
   cout << getMinPathLength(maze) << endl;

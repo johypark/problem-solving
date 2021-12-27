@@ -4,30 +4,30 @@
 using namespace std;
 
 void visitGroup(const vector<vector<bool>> &field,
+                const vector<pair<int, int>> &directions,
                 vector<vector<bool>> &isVisited, size_t x, size_t y) {
-  if (!field[y][x] || isVisited[y][x])
-    return;
-
   isVisited[y][x] = true;
 
-  if (x > 0)
-    visitGroup(field, isVisited, x - 1, y);
-  if (x < field.front().size() - 1)
-    visitGroup(field, isVisited, x + 1, y);
-  if (y > 0)
-    visitGroup(field, isVisited, x, y - 1);
-  if (y < field.size() - 1)
-    visitGroup(field, isVisited, x, y + 1);
+  size_t nx, ny;
+  for (size_t i = 0; i < directions.size(); i++) {
+    nx = x + directions[i].first;
+    ny = y + directions[i].second;
+    if (nx < field.front().size() && ny < field.size() && field[ny][nx] &&
+        !isVisited[ny][nx])
+      visitGroup(field, directions, isVisited, nx, ny);
+  }
 }
 
 int getGroups(const vector<vector<bool>> &field) {
+  const vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
   vector<vector<bool>> isVisited(field.size(),
                                  vector<bool>(field.front().size()));
   int count = 0;
   for (size_t i = 0; i < field.size(); i++) {
     for (size_t j = 0; j < field.front().size(); j++) {
       if (field[i][j] && !isVisited[i][j]) {
-        visitGroup(field, isVisited, j, i);
+        visitGroup(field, directions, isVisited, j, i);
         count++;
       }
     }

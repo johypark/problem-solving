@@ -1,30 +1,36 @@
-#include <array>
+#include <algorithm>
 #include <iostream>
 #include <queue>
-
-enum { MAX_POINT = 100000 };
+#include <vector>
 
 using namespace std;
 
 int getMinFindTime(int n, int k) {
+  const vector<int> directions = {-1, 1};
+
   queue<pair<int, int>> q;
   q.push({n, 0});
 
-  array<int, MAX_POINT + 1> isVisited = {false};
+  int maxPoint = max(n, k) + 1;
+  vector<bool> isVisited(maxPoint + 1);
   while (!q.empty()) {
     auto [x, time] = q.front();
-    if (!isVisited[x]) {
-      if (x == k)
-        return time;
+    if (x == k)
+      return time;
 
-      isVisited[x] = true;
+    size_t nx;
+    for (size_t i = 0; i < directions.size(); i++) {
+      nx = x + directions[i];
+      if (nx < isVisited.size() && !isVisited[nx]) {
+        isVisited[nx] = true;
+        q.push({nx, time + 1});
+      }
+    }
 
-      if (x > 0)
-        q.push({x - 1, time + 1});
-      if (x < MAX_POINT)
-        q.push({x + 1, time + 1});
-      if (2 * x <= MAX_POINT)
-        q.push({2 * x, time + 1});
+    nx = x * 2;
+    if (nx < isVisited.size() && !isVisited[nx]) {
+      isVisited[nx] = true;
+      q.push({nx, time + 1});
     }
 
     q.pop();
