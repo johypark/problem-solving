@@ -55,10 +55,10 @@ int main() {
   // Initialize board
   vector<vector<bool>> board(n, vector<bool>(m));
   string colors;
-  for (int i = 0; i < n; i++) {
+  for (auto &row : board) {
     cin >> colors;
-    for (int j = 0; j < m; j++)
-      board[i][j] = colors[j] == WHITE;
+    for (int i = 0; i < m; i++)
+      row[i] = colors[i] == WHITE;
   }
 
   cout << getMinRepaintCount(board) << endl;

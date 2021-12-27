@@ -24,13 +24,12 @@ int main() {
   int n;
   cin >> n;
 
+  string input;
   vector<vector<bool>> image(n, vector<bool>(n));
-  char input;
-  for (size_t i = 0; i < image.size(); i++) {
-    for (size_t j = 0; j < image.front().size(); j++) {
-      cin >> input;
-      image[i][j] = atoi(&input);
-    }
+  for (auto &row : image) {
+    cin >> input;
+    for (size_t i = 0; i < row.size(); i++)
+      row[i] = input[i] - '0';
   }
 
   cout << compressImage(image, image.size()) << endl;
