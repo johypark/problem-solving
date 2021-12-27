@@ -5,10 +5,9 @@
 using namespace std;
 
 int getProduct(const vector<int> &factors) {
-  int minFactor = *min_element(factors.begin(), factors.end());
-  int maxFactor = *max_element(factors.begin(), factors.end());
+  auto [minIt, maxIt] = minmax_element(factors.begin(), factors.end());
 
-  return minFactor * maxFactor;
+  return *minIt * *maxIt;
 }
 
 int main() {

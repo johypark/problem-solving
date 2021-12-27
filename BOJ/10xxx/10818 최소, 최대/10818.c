@@ -1,22 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int get_max(const int *nums, int length) {
-  int max = nums[0];
-  for (int i = 1; i < length; i++)
-    if (nums[i] > max)
-      max = nums[i];
-
-  return max;
-}
-
-int get_min(const int *nums, int length) {
-  int min = nums[0];
-  for (int i = 1; i < length; i++)
-    if (nums[i] < min)
-      min = nums[i];
-
-  return min;
+void minmax(const int *nums, int length, int *min, int *max) {
+  *min = nums[0];
+  *max = nums[0];
+  for (int i = 1; i < length; i++) {
+    if (nums[i] < *min)
+      *min = nums[i];
+    if (nums[i] > *max)
+      *max = nums[i];
+  }
 }
 
 int main(void) {
@@ -27,7 +20,10 @@ int main(void) {
   for (int i = 0; i < n; i++)
     scanf("%d", &nums[i]);
 
-  printf("%d %d\n", get_min(nums, n), get_max(nums, n));
+  int min_num, max_num;
+  minmax(nums, n, &min_num, &max_num);
+
+  printf("%d %d\n", min_num, max_num);
 
   free(nums);
 }

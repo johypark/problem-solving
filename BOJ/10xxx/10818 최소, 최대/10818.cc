@@ -12,6 +12,6 @@ int main() {
   for (int &num : nums)
     cin >> num;
 
-  cout << *min_element(nums.begin(), nums.end()) << ' '
-       << *max_element(nums.begin(), nums.end()) << endl;
+  auto [minIt, maxIt] = minmax_element(nums.begin(), nums.end());
+  cout << *minIt << ' ' << *maxIt << endl;
 }
