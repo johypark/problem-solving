@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int getMinMoves(int length) {
+int getMinMoveCount(int length) {
   double sqrtLength = sqrt(length);
   int roundSqrtLength = round(sqrtLength);
 
@@ -20,6 +20,6 @@ int main() {
   int x, y;
   for (int i = 0; i < t; i++) {
     cin >> x >> y;
-    cout << getMinMoves(y - x) << '\n';
+    cout << getMinMoveCount(y - x) << '\n';
   }
 }

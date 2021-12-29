@@ -20,9 +20,9 @@ int ripenTomatoes(const vector<vector<int>> &tomatoes) {
   while (!q.empty()) {
     auto [x, y, day] = q.front();
     size_t nx, ny;
-    for (size_t i = 0; i < directions.size(); i++) {
-      nx = x + directions[i].first;
-      ny = y + directions[i].second;
+    for (const auto &direction : directions) {
+      nx = x + direction.first;
+      ny = y + direction.second;
       if (nx < tomatoes.front().size() && ny < tomatoes.size() &&
           !tomatoes[ny][nx] && !isVisited[ny][nx]) {
         isVisited[ny][nx] = true;

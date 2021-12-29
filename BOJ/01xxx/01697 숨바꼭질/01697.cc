@@ -19,8 +19,8 @@ int getMinFindTime(int n, int k) {
       return time;
 
     size_t nx;
-    for (size_t i = 0; i < directions.size(); i++) {
-      nx = x + directions[i];
+    for (const int &direction : directions) {
+      nx = x + direction;
       if (nx < isVisited.size() && !isVisited[nx]) {
         isVisited[nx] = true;
         q.push({nx, time + 1});

@@ -9,9 +9,9 @@ void visitGroup(const vector<vector<bool>> &field,
   isVisited[y][x] = true;
 
   size_t nx, ny;
-  for (size_t i = 0; i < directions.size(); i++) {
-    nx = x + directions[i].first;
-    ny = y + directions[i].second;
+  for (const auto &direction : directions) {
+    nx = x + direction.first;
+    ny = y + direction.second;
     if (nx < field.front().size() && ny < field.size() && field[ny][nx] &&
         !isVisited[ny][nx])
       visitGroup(field, directions, isVisited, nx, ny);

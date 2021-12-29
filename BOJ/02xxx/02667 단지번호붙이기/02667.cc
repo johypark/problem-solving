@@ -11,9 +11,9 @@ int getApartment(const vector<vector<bool>> &complex,
 
   size_t nx, ny;
   int count = 0;
-  for (size_t i = 0; i < directions.size(); i++) {
-    nx = x + directions[i].first;
-    ny = y + directions[i].second;
+  for (const auto &direction : directions) {
+    nx = x + direction.first;
+    ny = y + direction.second;
     if (nx < complex.front().size() && ny < complex.size() && complex[ny][nx] &&
         !isVisited[ny][nx])
       count += getApartment(complex, directions, isVisited, nx, ny);

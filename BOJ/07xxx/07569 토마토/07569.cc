@@ -24,10 +24,10 @@ int ripenTomatoes(const vector<vector<vector<int>>> &tomatoes) {
   while (!q.empty()) {
     auto [x, y, z, day] = q.front();
     size_t nx, ny, nz;
-    for (size_t i = 0; i < directions.size(); i++) {
-      nx = x + get<0>(directions[i]);
-      ny = y + get<1>(directions[i]);
-      nz = z + get<2>(directions[i]);
+    for (const auto &direction : directions) {
+      nx = x + get<0>(direction);
+      ny = y + get<1>(direction);
+      nz = z + get<2>(direction);
       if (nx < tomatoes.front().front().size() &&
           ny < tomatoes.front().size() && nz < tomatoes.size() &&
           !tomatoes[nz][ny][nx] && !isVisited[nz][ny][nx]) {

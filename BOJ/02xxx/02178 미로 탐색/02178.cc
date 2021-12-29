@@ -19,9 +19,9 @@ int getMinPathLength(const vector<vector<bool>> &maze) {
       return length;
 
     size_t nx, ny;
-    for (size_t i = 0; i < directions.size(); i++) {
-      nx = x + directions[i].first;
-      ny = y + directions[i].second;
+    for (const auto &direction : directions) {
+      nx = x + direction.first;
+      ny = y + direction.second;
       if (nx < maze.front().size() && ny < maze.size() && maze[ny][nx] &&
           !isVisited[ny][nx]) {
         isVisited[ny][nx] = true;
