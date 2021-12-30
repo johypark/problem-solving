@@ -13,6 +13,8 @@ int getMinFindTime(int n, int k) {
 
   int maxPoint = max(n, k) + 1;
   vector<bool> isVisited(maxPoint + 1);
+  isVisited[n] = true;
+
   while (!q.empty()) {
     auto [x, time] = q.front();
     if (x == k)

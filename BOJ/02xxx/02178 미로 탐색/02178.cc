@@ -13,6 +13,8 @@ int getMinPathLength(const vector<vector<bool>> &maze) {
 
   vector<vector<bool>> isVisited(maze.size(),
                                  vector<bool>(maze.front().size()));
+  isVisited[0][0] = true;
+
   while (!q.empty()) {
     auto [x, y, length] = q.front();
     if (x == maze.front().size() - 1 && y == maze.size() - 1)

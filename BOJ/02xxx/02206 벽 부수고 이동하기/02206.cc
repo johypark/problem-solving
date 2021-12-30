@@ -8,13 +8,15 @@ using namespace std;
 int getMinPathLength(const vector<vector<bool>> &maze) {
   const vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
-  queue<tuple<size_t, size_t, int, bool>> q;
-  q.push({0, 0, 1, true});
+  queue<tuple<size_t, size_t, bool, int>> q;
+  q.push({0, 0, true, 1});
 
   vector<vector<vector<bool>>> isVisited(
       maze.size(), vector<vector<bool>>(maze.front().size(), vector<bool>(2)));
+  isVisited[0][0][true] = true;
+
   while (!q.empty()) {
-    auto [x, y, length, canBrake] = q.front();
+    auto [x, y, canBrake, length] = q.front();
     if (x == maze.front().size() - 1 && y == maze.size() - 1)
       return length;
 
@@ -26,10 +28,10 @@ int getMinPathLength(const vector<vector<bool>> &maze) {
           !isVisited[ny][nx][canBrake]) {
         if (maze[ny][nx]) {
           isVisited[ny][nx][canBrake] = true;
-          q.push({nx, ny, length + 1, canBrake});
+          q.push({nx, ny, canBrake, length + 1});
         } else if (canBrake) {
           isVisited[ny][nx][canBrake] = true;
-          q.push({nx, ny, length + 1, false});
+          q.push({nx, ny, false, length + 1});
         }
       }
     }
