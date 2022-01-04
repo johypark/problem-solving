@@ -1,4 +1,4 @@
-# Online Judge Solutions using C/C++
+# Problem Solving
 
 ## List
 * Baekjoon Online Judge
