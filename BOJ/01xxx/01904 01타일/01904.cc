@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int getCountTileCases(int n) {
+int getTileCasesCount(int n) {
   const int MODULAR = 15746;
   int prev = 1;
   int curr = 1;
@@ -20,5 +20,5 @@ int main() {
   int n;
   cin >> n;
 
-  cout << getCountTileCases(n) << endl;
+  cout << getTileCasesCount(n) << endl;
 }
