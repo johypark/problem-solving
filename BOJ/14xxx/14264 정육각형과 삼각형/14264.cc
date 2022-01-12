@@ -1,7 +1,7 @@
 #include <cmath>
 #include <iostream>
 
-enum { PRECISION = 10 };
+enum { PRECISION = 9 };
 
 using namespace std;
 
