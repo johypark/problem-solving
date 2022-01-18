@@ -10,7 +10,8 @@
                 "-o",
                 "Build/${fileBasenameNoExtension}.out",
                 "-W",
-                "-Wall"
+                "-Wall",
+                "-Wno-deprecated-declarations"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
